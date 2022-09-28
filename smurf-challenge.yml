@@ -1,0 +1,16 @@
+---
+  - hosts: bender
+    gather_facts: no
+
+    vars:
+      smurfs : orange
+    vars_files:
+        - smurfcolor.yml 
+    vars_prompt:
+      - name: smurfs
+        prompt: "what color are smurfs?"
+        private : no 
+        default : pink 
+    tasks:
+      - debug : 
+         msg: "Smurfs are {{smurfs}}!"
