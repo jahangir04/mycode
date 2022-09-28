@@ -1,0 +1,12 @@
+---
+- name: Getting files
+  hosts: looneytunes   # run against the entire planetexpress group
+  connection: ssh        # use the connection module, ssh.py (this is the default)
+  gather_facts: no       # do not run the module, setup.py, to define ansible_facts
+
+  tasks:
+  - name: "Download virus protection software to install on hosts"
+    get_url:
+      url: https://raw.githubusercontent.com/csfeeser/ansible_essentials/main/data/downloadme.txt
+      dest: ~/challenge
+

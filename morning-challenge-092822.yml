@@ -1,0 +1,22 @@
+- name: Play- grab a file online
+  hosts: looneytunes
+  connection: ssh
+  gather_facts: no
+
+  tasks:
+  - name: create a chaCancelllenge directory
+    file:
+      name: challenge
+      state: directory
+
+  - name: downloading downloadme.txt
+    get_url:
+      url: https://raw.githubusercontent.com/csfeeser/ansible_essentials/main/data/downloadme.txt
+      dest: challenge
+
+  - name: swap out PLACEHOLDER for "Chad"
+    replace:
+      path: ~/challenge/downloadme.txt
+      regexp: "PLACEHOLDER"
+      replace: "MUHAMMAD"
+      backup: yes
