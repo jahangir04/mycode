@@ -1,0 +1,12 @@
+---
+- name: Apache server installed
+  hosts: web
+  gather_facts: no
+  become: yes
+
+  roles:
+      - challenge
+
+  tasks:
+      - debug:
+          msg: "Thats all folks!"
